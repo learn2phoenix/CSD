@@ -1,0 +1,29 @@
+name: style
+channels:
+  - pytorch
+  - defaults
+  - conda-forge
+dependencies:
+  - pillow
+  - pip
+  - python=3.9
+  - pytorch=*=*cuda11.3*
+  - cudatoolkit>=11.3
+  - scipy
+  - torchvision
+  - jupyterlab
+  - ipywidgets
+  - scikit-image
+  - faiss-gpu
+  - tensorboard
+  - pip:
+    - git+https://github.com/openai/CLIP.git
+    - pandas
+    - ipdb
+    - wandb
+    - timm==0.6.12
+    - matplotlib
+    - einops
+    - vaex
+    - seaborn
+    - scikit-learn
