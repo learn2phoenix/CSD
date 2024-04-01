@@ -1,6 +1,6 @@
-# Investigating Style Similarity in Diffusion Models
+# Measuring Style Similarity in Diffusion Models
 
-![alt text](github_teaser.jpg "Generations from Stable Diffusion v1.4 and corresponding matches from LAION-A 6+")
+![alt text](github_teaser.jpg "Generations from Stable Diffusion and corresponding matches from LAION-Styles split")
 
 ## Create and activate the environment
 
@@ -71,4 +71,5 @@ torchrun --standalone --nproc_per_node=4 CSD/train_csd.py --arch vit_base -j 8 -
 
 ## Pending items
 
-We will soon release the parquet files for the LAION-Styles subset we used in training CSD model.
+1. We will soon release the parquet files for the LAION-Styles subset we used in the training CSD model.
+2. Code to compute the artists' prototypical style representations and compute similarity score against any given generation. 
