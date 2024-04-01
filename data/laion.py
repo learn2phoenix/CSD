@@ -8,7 +8,7 @@ import vaex as vx
 
 
 def create_laion_cache(root_dir, anno_dir, keys=['artist', 'medium', 'movement']):
-    # /fs/cml-projects/diffusion_rep/data/laion_style_subset
+    # -projects/diffusion_rep/data/laion_style_subset
     # read all the picke files in the anno_dir
     paths = []
     labels = []  # list of lists since each image can have multiple labels
@@ -49,7 +49,7 @@ class LAION(Dataset):
                  keys=['artist', 'medium', 'movement'],
                  min_images_per_label=1, max_images_per_label=100000,
                  num_queries_per_label=10, maxsize=None, model_type='dann'):
-        # /fs/cml-projects/diffusion_rep/data/laion_style_subset
+        # -projects/diffusion_rep/data/laion_style_subset
         self.root_dir = root_dir
         self.transform = transform
         self.model_type = model_type
@@ -149,7 +149,7 @@ class LAION(Dataset):
 
 
 def create_laion_dedup_cache(dedup_dir):
-    # /fs/cml-projects/diffusion_rep/data/laion_style_subset/dedup_info
+    # -projects/diffusion_rep/data/laion_style_subset/dedup_info
     keys = None
     labels = None
     rejects = None
@@ -278,8 +278,8 @@ class SDSynth400:
         self.val_images = []
 
         if eval_mode:
-            data_dir = '/fs/cml-datasets/improved_aesthetics_6plus'
-            anno_dir = '/fs/cml-projects/diffusion_rep/data/laion_style_subset'
+            data_dir = '-datasets/improved_aesthetics_6plus'
+            anno_dir = '-projects/diffusion_rep/data/laion_style_subset'
             val_dset = LAIONDedup(data_dir, anno_dir, transform=transform, eval_mode=True, artist_mode=True)
             # val_dset = LAION(data_dir, anno_dir, transform=transform)
             # Needed for search code
@@ -315,11 +315,11 @@ class SDSynth400:
 
 if __name__ == "__main__":
     # dset = WikiArt(
-    #     "/fs/cml-projects/diffusion_rep/data/wikiart", 'database')
+    #     "-projects/diffusion_rep/data/wikiart", 'database')
 
     dset = LAION(
-        "/fs/cml-datasets/improved_aesthetics_6plus",
-        "/fs/cml-projects/diffusion_rep/data/laion_style_subset",
+        "-datasets/improved_aesthetics_6plus",
+        "-projects/diffusion_rep/data/laion_style_subset",
         split='database')
     print(f"{len(dset)} images in the dataset")
 
@@ -337,13 +337,13 @@ if __name__ == "__main__":
         else:
             index_to_keys.append('movement')
 
-    path = "/fs/cml-projects/diffusion_rep/data/laion_style_subset/index_to_labels_keys_texts.pkl"
+    path = "-projects/diffusion_rep/data/laion_style_subset/index_to_labels_keys_texts.pkl"
     with open(path, 'wb') as tmp:
         pickle.dump((index_to_labels, index_to_keys, index_to_texts), tmp)
 
     # dset = LAION(
-    #     "/fs/cml-datasets/improved_aesthetics_6plus",
-    #     "/fs/cml-projects/diffusion_rep/data/laion_style_subset",
+    #     "-datasets/improved_aesthetics_6plus",
+    #     "-projects/diffusion_rep/data/laion_style_subset",
     #     split='query',
     #     min_images_per_label=10,
     #     max_images_per_label=100000)
@@ -351,6 +351,6 @@ if __name__ == "__main__":
     # print(f"{len(dset)} images in the dataset")
 
     # dset = LAIONDedup(
-    #     "/fs/cml-datasets/improved_aesthetics_6plus",
-    #     "/fs/cml-projects/diffusion_rep/data/laion_style_subset",
+    #     "-datasets/improved_aesthetics_6plus",
+    #     "-projects/diffusion_rep/data/laion_style_subset",
     #     eval_mode=True)

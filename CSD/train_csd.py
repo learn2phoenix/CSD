@@ -42,7 +42,7 @@ def get_args_parser():
     parser.add_argument('--train_path', required=True,
                         help='Wiki art data path')
     parser.add_argument('--train_anno_path',
-                        default='/fs/cml-projects/diffusion_rep/data/laion_style_subset',
+                        default='-projects/diffusion_rep/data/laion_style_subset',
                         help='Annotation dir,  used only for LAION')
     parser.add_argument("--min_images_per_label", default=1, type=int, 
                         help="minimum images for a label (used only for laion)")
