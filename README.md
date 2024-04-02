@@ -71,5 +71,4 @@ torchrun --standalone --nproc_per_node=4 CSD/train_csd.py --arch vit_base -j 8 -
 
 ## Pending items
 
-1. We will soon release the parquet files for the LAION-Styles subset we used in the training CSD model.
-2. Code to compute the artists' prototypical style representations and compute similarity score against any given generation. 
+1. We will soon release the code to compute the artists' prototypical style representations and compute similarity score against any given generation. 
