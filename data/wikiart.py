@@ -42,7 +42,7 @@ class WikiArtD(Dataset):
         annotations = vx.from_csv(f'{self.root_dir}/wikiart.csv')
         acceptable_artists = list(set(annotations[annotations['split'] == 'database']['artist'].tolist()))
         temprepo = annotations[annotations['artist'].isin(acceptable_artists)]
-        self.pathlist = temprepo[temprepo['split'] == split]['fps'].tolist()
+        self.pathlist = temprepo[temprepo['split'] == split]['path'].tolist()
 
         self.namelist = list(map(lambda x: x.split('/')[-1], self.pathlist))
 
@@ -69,7 +69,7 @@ class WikiArtTrain(Dataset):
             set(annotations[annotations['split'] == 'database']['artist'].tolist())
         )
         temprepo = annotations[annotations['artist'].isin(acceptable_artists)]
-        self.pathlist = temprepo[temprepo['split'] == split]['fps'].tolist()
+        self.pathlist = temprepo[temprepo['split'] == split]['path'].tolist()
         self.labels = temprepo[temprepo['split'] == split]['artist'].tolist()
 
         self.artist_to_index = {artist: i for i, artist in enumerate(acceptable_artists)}

@@ -38,6 +38,8 @@ path/to/WikiArt
 └── wikiart.csv
 ```
 
+Also, make sure that you add a column `path` in the `wikiart.csv` file which contains the absolute path to the image.
+
 ## Generate the embeddings
 
 Once WikiArt dataset is set up, you can generate the CSD embeddings by running the following command. Please adjust
