@@ -1,4 +1,5 @@
 # Measuring Style Similarity in Diffusion Models
+Check out the paper here - [arxiv] (https://arxiv.org/abs/2404.01292).
 
 ![alt text](github_teaser.jpg "Generations from Stable Diffusion and corresponding matches from LAION-Styles split")
 
@@ -73,4 +74,15 @@ torchrun --standalone --nproc_per_node=4 CSD/train_csd.py --arch vit_base -j 8 -
 
 ## Pending items
 
-1. We will soon release the code to compute the artists' prototypical style representations and compute similarity score against any given generation. 
+We will soon release the code to compute the artists' prototypical style representations and compute similarity score against any given generation. ETA end of June'24.
+
+## Cite us
+
+```
+@article{somepalli2024measuring,
+  title={Measuring Style Similarity in Diffusion Models},
+  author={Somepalli, Gowthami and Gupta, Anubhav and Gupta, Kamal and Palta, Shramay and Goldblum, Micah and Geiping, Jonas and Shrivastava, Abhinav and Goldstein, Tom},
+  journal={arXiv preprint arXiv:2404.01292},
+  year={2024}
+}
+```
