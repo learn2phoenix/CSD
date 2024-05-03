@@ -1,5 +1,5 @@
 # Measuring Style Similarity in Diffusion Models
-Check out the paper here - [arxiv] (https://arxiv.org/abs/2404.01292).
+Check out the paper here - [arxiv](https://arxiv.org/abs/2404.01292).
 
 ![alt text](github_teaser.jpg "Generations from Stable Diffusion and corresponding matches from LAION-Styles split")
 
