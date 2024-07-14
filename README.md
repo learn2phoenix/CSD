@@ -64,7 +64,10 @@ python search.py --mode artist --dataset wikiart --chunked --query-chunk-dir <pa
 
 ## Train CSD on LAION-Styles
 
-You can also train style descriptors for your own datasets. A sample code for training on LAION-styles dataset is provided below. (We will release the dataset construction files soon.)
+You can also train style descriptors for your own datasets. A sample code for training on LAION-styles dataset is provided below.
+
+We have started to release the **Contra-Styles** (referred to as LAION-Styles in the paper) dataset. The dataset is available [here](https://huggingface.co/datasets/tomg-group-umd/Contra-Styles)
+and will keep getting updated over the next few days as we are running profanity checks through NSFW and PhotoDNA. We will update here once the dataset has been completely uploaded.
 
 ```
 export PYTHONPATH="$PWD:$PYTHONPATH"
