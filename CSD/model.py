@@ -4,6 +4,8 @@ import clip
 import copy
 from torch.autograd import Function
 
+from huggingface_hub import PyTorchModelHubMixin
+
 
 from .utils import convert_weights_float
 
@@ -55,7 +57,7 @@ def init_weights(m): # TODO: do we need init for layernorm?
             nn.init.normal_(m.bias, std=1e-6)
 
 
-class CSD_CLIP(nn.Module):
+class CSD_CLIP(nn.Module, PyTorchModelHubMixin, repo_url="https://github.com/learn2phoenix/CSD", pipeline_tag="image-feature-extraction", license="mit"):
     """backbone + projection head"""
     def __init__(self, name='vit_large',content_proj_head='default'):
         super(CSD_CLIP, self).__init__()
