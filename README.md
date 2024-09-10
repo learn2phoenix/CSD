@@ -12,7 +12,8 @@ conda activate style
 
 ## Download the pretrained weights for the CSD model
 
-Please download the CSD model (ViT-L) weights [here](https://drive.google.com/file/d/1FX0xs8p-C7Ob-h5Y4cUhTeOepHzXv_46/view?usp=sharing). 
+If you want to download the model directly, the CSD model (ViT-L) weights [here](https://drive.google.com/file/d/1FX0xs8p-C7Ob-h5Y4cUhTeOepHzXv_46/view?usp=sharing).
+If you are using huggingface, the CSD model (ViT-L) is [here](https://huggingface.co/tomg-group-umd/CSD-ViT-L).
 
 
 ## Download the pretrained weights for the baseline models
