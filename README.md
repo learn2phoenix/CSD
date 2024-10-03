@@ -1,3 +1,7 @@
+# DISCLAIMER
+We are currently investigating an issue with our uploaded model weights due to which there is some discrepancy with the reported numbers in the paper. We will update soon.
+
+
 # Measuring Style Similarity in Diffusion Models
 Check out the paper here - [arxiv](https://arxiv.org/abs/2404.01292).
 
