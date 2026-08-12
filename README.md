@@ -80,6 +80,24 @@ export PYTHONPATH="$PWD:$PYTHONPATH"
 torchrun --standalone --nproc_per_node=4 CSD/train_csd.py --arch vit_base -j 8 -b 32 --maxsize 512 --resume_if_available --eval_k 1 10 100 --use_fp16 --use_distributed_loss --train_set laion_dedup --train_path <PATH to LAION-Styles> --eval_path <PATH to WikiArt/some val set>  --output_dir <PATH to save checkpoint>
 ```
 
+## Loading as a plain PyTorch module
+
+The released checkpoint has no `transformers` `AutoModel` support, and `config.json` carries no architecture info (`{"model_type": "custom"}`), so it can't be loaded with `from_pretrained`. `models/csd_clip.py` reconstructs the architecture directly from the checkpoint's `state_dict` (a CLIP ViT-L/14 quickgelu backbone with its contrastive `proj` removed, feeding two separate `(1024, 768)` style/content projection matrices), loading it with `strict=True` produces zero missing and zero unexpected keys against the released weights.
+
+```python
+from models.csd_clip import load_csd_model, csd_preprocess
+from PIL import Image
+import torch
+
+model = load_csd_model()  # downloads tomg-group-umd/CSD-ViT-L via huggingface_hub
+
+img = csd_preprocess(Image.open("photo.jpg")).unsqueeze(0).to(next(model.parameters()).device)
+with torch.no_grad():
+    _, style_embed, content_embed = model(img)
+```
+
+Closes #8.
+
 ## Pending items
 
 We will soon release the code to compute the artists' prototypical style representations and compute similarity score against any given generation. ETA end of June'24.
